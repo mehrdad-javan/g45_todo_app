@@ -2,8 +2,11 @@ package se.lexicon;
 
 
 import se.lexicon.dao.AppUserDao;
+import se.lexicon.dao.PersonDao;
 import se.lexicon.dao.impl.AppUserDaoImpl;
+import se.lexicon.dao.impl.PersonDaoImpl;
 import se.lexicon.model.AppUser;
+import se.lexicon.model.Person;
 import se.lexicon.model.Role;
 
 public class App {
@@ -31,6 +34,18 @@ public class App {
 
     AppUserDao appUserDao2 = AppUserDaoImpl.getInstance();
     System.out.println(appUserDao2.findAll());
+
+
+    // person data
+    Person personData1 = new Person("Test", "Test", appUserData1);
+
+    PersonDao personDao = PersonDaoImpl.getInstance();
+
+    Person createdPerson1 = personDao.create(personData1);
+    System.out.println(createdPerson1.getAppUser());
+
+    System.out.println(personDao.findAll());
+
 
 
   }

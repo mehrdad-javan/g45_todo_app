@@ -1,8 +1,8 @@
 package se.lexicon.dao.impl.sequencer;
 
-public class PersonIdSequencer {
+public class AppUserIdSequencer {
 
-  private static int sequencer = 1000;
+  private static int sequencer = 100;
 
   public static int nextId() {
     return ++sequencer;

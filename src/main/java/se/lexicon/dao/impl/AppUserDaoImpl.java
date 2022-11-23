@@ -2,6 +2,7 @@ package se.lexicon.dao.impl;
 
 import se.lexicon.App;
 import se.lexicon.dao.AppUserDao;
+import se.lexicon.dao.impl.sequencer.AppUserIdSequencer;
 import se.lexicon.dao.impl.sequencer.PersonIdSequencer;
 import se.lexicon.model.AppUser;
 import se.lexicon.model.Role;
@@ -28,7 +29,7 @@ public class AppUserDaoImpl implements AppUserDao {
   public AppUser create(AppUser appUser) {
     if (appUser == null) throw new IllegalArgumentException("appUser was null");
     // check -> the username must not be duplicate
-    appUser.setId(PersonIdSequencer.nextId());
+    appUser.setId(AppUserIdSequencer.nextId());
     storage.add(appUser);
     return appUser;
   }

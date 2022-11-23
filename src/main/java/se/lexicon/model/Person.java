@@ -20,10 +20,11 @@ public class Person {
     setAssignedTodos(assignedTodos);
   }
 
-  public Person(String firstName, String lastName) {
+  public Person(String firstName, String lastName, AppUser appUser) {
     setFirstName(firstName);
     setLastName(lastName);
     this.assignedTodos = new ArrayList<>();
+    setAppUser(appUser);
   }
 
   public Integer getId() {
