@@ -14,5 +14,10 @@ and complete projects more efficiently by organizing and prioritizing related ta
 ![class-diagram](/image/dao-class-diagram.png)
 
 
+## MVC Design pattern
+
+![mvc](/image/mvc.png)
+
+
 ### Links
 [Design Patterns](https://www.tutorialspoint.com/design_pattern/index.htm)

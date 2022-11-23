@@ -1,9 +1,7 @@
 package se.lexicon.dao.impl;
 
-import se.lexicon.App;
 import se.lexicon.dao.AppUserDao;
 import se.lexicon.dao.impl.sequencer.AppUserIdSequencer;
-import se.lexicon.dao.impl.sequencer.PersonIdSequencer;
 import se.lexicon.model.AppUser;
 import se.lexicon.model.Role;
 
