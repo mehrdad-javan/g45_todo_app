@@ -3,11 +3,18 @@ package se.lexicon;
 
 import se.lexicon.dao.AppUserDao;
 import se.lexicon.dao.PersonDao;
+import se.lexicon.dao.TodoItemDao;
 import se.lexicon.dao.impl.AppUserDaoImpl;
 import se.lexicon.dao.impl.PersonDaoImpl;
+import se.lexicon.dao.impl.TodoItemDaoImpl;
 import se.lexicon.model.AppUser;
 import se.lexicon.model.Person;
 import se.lexicon.model.Role;
+import se.lexicon.model.TodoItem;
+
+import java.time.LocalDate;
+import java.util.List;
+import java.util.Optional;
 
 public class App {
 
@@ -44,10 +51,20 @@ public class App {
     Person createdPerson1 = personDao.create(personData1);
     System.out.println(createdPerson1.getAppUser());
 
-    System.out.println(personDao.findAll());
+    Optional<Person> optionalPerson = personDao.findByUsername("appuser");
+    if (optionalPerson.isPresent()) System.out.println(optionalPerson.get());
+    else System.out.println("Person not found");
 
 
+    System.out.println("------------------------");
 
+    TodoItem task1 = new TodoItem("task1", "test description", LocalDate.parse("2022-12-10"));
+    task1.setAssignee(createdPerson1);
+
+    TodoItemDao todoItemDao = TodoItemDaoImpl.getInstance();
+    TodoItem createdTask1 = todoItemDao.create(task1);
+
+    System.out.println(todoItemDao.findAll());
   }
 
 }
