@@ -14,10 +14,13 @@ public class Person {
 
   // contractors
   public Person(Integer id, String firstName, String lastName, List<TodoItem> assignedTodos) {
-   setId(id);
+    setId(id);
     setFirstName(firstName);
     setLastName(lastName);
     setAssignedTodos(assignedTodos);
+  }
+
+  public Person() {
   }
 
   public Person(String firstName, String lastName, AppUser appUser) {
@@ -41,7 +44,7 @@ public class Person {
   }
 
   public void setFirstName(String firstName) {
-    if(firstName == null) throw new IllegalArgumentException("firstName was null");
+    if (firstName == null) throw new IllegalArgumentException("firstName was null");
     this.firstName = firstName;
   }
 
@@ -50,7 +53,7 @@ public class Person {
   }
 
   public void setLastName(String lastName) {
-    if(lastName == null) throw new IllegalArgumentException("lastName was null");
+    if (lastName == null) throw new IllegalArgumentException("lastName was null");
     this.lastName = lastName;
   }
 
@@ -59,7 +62,7 @@ public class Person {
   }
 
   public void setAppUser(AppUser appUser) {
-    if(appUser == null) throw new IllegalArgumentException("appUser was null");
+    if (appUser == null) throw new IllegalArgumentException("appUser was null");
     this.appUser = appUser;
   }
 
@@ -68,7 +71,7 @@ public class Person {
   }
 
   public void setAssignedTodos(List<TodoItem> assignedTodos) {
-    if(assignedTodos == null) assignedTodos = new ArrayList<>();
+    if (assignedTodos == null) assignedTodos = new ArrayList<>();
     this.assignedTodos = assignedTodos;
   }
 

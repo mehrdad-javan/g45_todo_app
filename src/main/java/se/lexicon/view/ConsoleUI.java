@@ -3,7 +3,10 @@ package se.lexicon.view;
 import se.lexicon.model.AppUser;
 import se.lexicon.model.Person;
 import se.lexicon.model.Role;
+import se.lexicon.model.TodoItem;
 
+import java.time.LocalDate;
+import java.util.List;
 import java.util.Scanner;
 
 public class ConsoleUI {
@@ -60,15 +63,41 @@ public class ConsoleUI {
 
   }
 
-  public void displayPersonInformation(Person person){
+  public void displayPersonInformation(Person person) {
     System.out.println(person.toString());
   }
 
-  // get todo_item data
+  public TodoItem getTodoItemData() {
+    System.out.println("Title:");
+    String title = getString();
+    System.out.println("Description:");
+    String description = getString();
+    System.out.println("Deadline (YYYY-MM-DD):");
+    String deadline = getString();
 
-  // print todo_item information
+    System.out.println("PersonId:");
+    Integer personId = getNumber();
 
-  // display all tasks
+    TodoItem todoItemData = new TodoItem(title, description, LocalDate.parse(deadline));
 
+    Person personData = new Person();
+    personData.setId(personId);
 
+    todoItemData.setAssignee(personData);
+
+    return todoItemData;
+
+  }
+
+  public void displayTodoItemInformation(TodoItem todoItem) {
+    System.out.println(todoItem.toString());
+  }
+
+  public void displayTodoItemInformation(List<TodoItem> todoItemList) {
+    for (TodoItem todoItem : todoItemList) {
+      displayTodoItemInformation(todoItem);
+    }
+  }
+
+  //...
 }
